@@ -82,6 +82,8 @@ symbols = st.multiselect(
 
 fetch_button = st.button("🚀 Analyze Market")
 
+
+
 # ---------------- MAIN ---------------- #
 
 if fetch_button:
@@ -94,6 +96,38 @@ if fetch_button:
     
     
 
+    # ---------------- MONEY BLAST EFFECT 💵🔥 ---------------- #
+
+    st.markdown("""
+        <style>
+        .money-blast {
+            position: fixed;
+            bottom: -120px;
+            font-size: 80px;
+            animation: blast 1.1s ease-out forwards;
+            opacity: 0.95;
+            z-index: 9999;
+        }
+
+        @keyframes blast {
+            0% {
+                transform: translateY(0) scale(0.5);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-120vh) scale(1.8);
+                opacity: 0;
+            }
+        }
+        </style>
+
+        <div class="money-blast" style="left:10%;">💵</div>
+        <div class="money-blast" style="left:30%; animation-delay:0.1s;">💸</div>
+        <div class="money-blast" style="left:50%; animation-delay:0.2s;">💰</div>
+        <div class="money-blast" style="left:70%; animation-delay:0.3s;">💸</div>
+        <div class="money-blast" style="left:90%; animation-delay:0.4s;">💵</div>
+    """, unsafe_allow_html=True)
+    
     # ---------------- METRICS ---------------- #
 
     st.subheader("📈 Market Snapshot")
@@ -246,7 +280,8 @@ if fetch_button:
     """
 
     st.success(advice_msg)
-
+    
+  
     # ---------------- SENTIMENT ---------------- #
 
     st.markdown("---")
