@@ -91,6 +91,42 @@ if fetch_button:
     if df.empty:
         st.error("❌ Failed to fetch market data")
         st.stop()
+    
+    if st.session_state.show_money:
+
+    st.markdown("""
+        <style>
+        .money {
+            position: fixed;
+            bottom: -100px;
+            font-size: 80px;
+            animation: moneyBlast 1.2s ease-out forwards;
+            opacity: 0.95;
+            z-index: 9999;
+        }
+
+        @keyframes moneyBlast {
+            0% {
+                transform: translateY(0) scale(0.5);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-120vh) scale(1.8);
+                opacity: 0;
+            }
+        }
+        </style>
+
+        <div class="money" style="left:10%;">💵</div>
+        <div class="money" style="left:30%; animation-delay:0.1s;">💸</div>
+        <div class="money" style="left:50%; animation-delay:0.2s;">💵</div>
+        <div class="money" style="left:70%; animation-delay:0.3s;">💸</div>
+        <div class="money" style="left:90%; animation-delay:0.4s;">💵</div>
+    """, unsafe_allow_html=True)
+
+    # ✅ RESET → prevents looping
+    st.session_state.show_money = False
+
 
     # ---------------- METRICS ---------------- #
 
